@@ -2,10 +2,12 @@
   "name": "restfulapi",
   "version": "1.0.0",
   "description": "contact app with restfulapi",
-  "main": "./src/app.js",
+  "main": "./src/server.js",
   "type": "module",
   "scripts": {
-    "test": "jest -i"
+    "test": "jest -i",
+    "start-dev" : "nodemon ./src/server.js",
+    "start": "node ./src/server.js"
   },
   "jest": {
     "verbose": true,
@@ -17,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.5.2",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
