@@ -70,3 +70,37 @@ export const createTestContactMany = async () => {
     });
   }
 };
+
+export const removeAllTestAddresses = async () => {
+  await prismaClient.address.deleteMany({
+    where: {
+      contact: {
+        username: "test",
+      },
+    },
+  });
+};
+
+export const createTestAddress = async () => {
+  const contact = await getTestContact();
+  await prismaClient.address.create({
+    data: {
+      street: "jalan",
+      city: "Kota",
+      state: "state",
+      country: "Negara",
+      postal_code: "123456",
+      contact_id: contact.id,
+    },
+  });
+};
+
+export const getTestAddress = async () => {
+  return prismaClient.address.findFirst({
+    where: {
+      contact: {
+        username: "test",
+      },
+    },
+  });
+};

@@ -1,5 +1,5 @@
-import { prismaClient } from "../application/db/connect";
-import { ResponseError } from "../error/response-error";
+import { prismaClient } from "../application/db/connect.js";
+import { ResponseError } from "../error/response-error.js";
 
 export const auth = async (req, res, next) => {
   try {
